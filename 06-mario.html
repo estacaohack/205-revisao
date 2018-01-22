@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <style>
+      img{
+        position: absolute;
+      }
+
+      .mario{
+        left: 60px;
+        width: 200px;
+        transition: 2s;
+      }
+
+      .mario-pelo-cano{
+        transform: translateY(270px);
+      }
+
+      .pipe{
+        top: 240px;
+      }
+    </style>
+
+    <img src="mario.png" class="mario">
+    <img src="pipe.png" class="pipe">
+
+    <script type="text/javascript">
+      let mario = document.querySelector('.mario');
+      let somDoCano = new Audio('pipe.wav');
+
+      function moverMario(){
+        if(mario.classList.contains('mario-pelo-cano')){
+          mario.classList.remove('mario-pelo-cano');
+        }else{
+          mario.classList.add('mario-pelo-cano');
+        }
+
+        somDoCano.play();
+      }
+
+      setInterval(moverMario, 2000);
+    </script>
+  </body>
+</html>
